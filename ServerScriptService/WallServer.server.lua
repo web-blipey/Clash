@@ -16,7 +16,7 @@ local DestroyWallEvent = RemoteEvents:WaitForChild("DestroyWall")
 -- Create DamageWall event if it doesn't exist
 local DamageWallEvent = RemoteEvents:FindFirstChild("DamageWall")
 if not DamageWallEvent then
-	DamageWallEvent = Instance. new("RemoteEvent")
+	DamageWallEvent = Instance.new("RemoteEvent")
 	DamageWallEvent.Name = "DamageWall"
 	DamageWallEvent.Parent = RemoteEvents
 end
@@ -32,34 +32,46 @@ local wallTemplate = ReplicatedStorage:WaitForChild("WallTemplate")
 local wallsFolder = workspace:FindFirstChild("Walls")
 if not wallsFolder then
 	wallsFolder = Instance.new("Folder")
-	wallsFolder. Name = "Walls"
+	wallsFolder.Name = "Walls"
 	wallsFolder.Parent = workspace
 end
 
 -- Player wall tracking
-local playerWalls = {} -- [player] = {wall1, wall2, wall3}
+local playerWalls = {}
 
--- Place wall function
-local function placeWall(player, position, rotation)
+-- Place wall function (FIXED ROTATION)
+local function placeWall(player, position, rotationY)
 	-- Create wall
 	local wall = wallTemplate:Clone()
 	wall. Name = player.Name .. "_Wall"
-	wall.CFrame = CFrame.new(position) * CFrame.Angles(0, math.rad(rotation. Y), 0)
+	
+	-- Place wall UPRIGHT with only Y rotation
+	wall.CFrame = CFrame.new(position) * CFrame.Angles(0, math.rad(rotationY), 0)
+	
 	wall. Transparency = 0
 	wall.CanCollide = true
-	wall. Anchored = true
+	wall.Anchored = true
 	
 	-- Reset color to normal (not green/red from preview)
 	wall.Color = wallTemplate.Color
 	
+	-- Make all children collidable and visible
+	for _, child in pairs(wall:GetDescendants()) do
+		if child:IsA("BasePart") then
+			child.CanCollide = true
+			child. Transparency = 0
+			child.Anchored = true
+		end
+	end
+	
 	-- Add ownership data
 	local ownerValue = Instance.new("StringValue")
-	ownerValue.Name = "Owner"
+	ownerValue. Name = "Owner"
 	ownerValue.Value = player.Name
 	ownerValue.Parent = wall
 	
 	-- Add health data
-	local healthValue = Instance.new("NumberValue")
+	local healthValue = Instance. new("NumberValue")
 	healthValue.Name = "Health"
 	healthValue.Value = WALL_MAX_HEALTH
 	healthValue.Parent = wall
@@ -92,7 +104,7 @@ local function placeWall(player, position, rotation)
 	
 	local gridSizeValue = Instance.new("Vector3Value")
 	gridSizeValue.Name = "GridSize"
-	gridSizeValue.Value = Vector3.new(sizeX, sizeZ, 0)
+	gridSizeValue. Value = Vector3.new(sizeX, sizeZ, 0)
 	gridSizeValue.Parent = wall
 	
 	wall.Parent = wallsFolder
@@ -129,12 +141,12 @@ local function placeWall(player, position, rotation)
 		end
 	end)
 	
-	print(player.Name .. " placed a wall!")
+	print(player.Name .. " placed a wall at rotation: " .. rotationY)
 end
 
 -- Damage wall function
 local function damageWall(wall, damage, attacker)
-	if not wall or not wall.Parent then return end
+	if not wall or not wall. Parent then return end
 	
 	local healthValue = wall:FindFirstChild("Health")
 	local maxHealthValue = wall:FindFirstChild("MaxHealth")
@@ -148,7 +160,7 @@ local function damageWall(wall, damage, attacker)
 		wall.Color = Color3.fromRGB(139, 69, 19) -- Damaged brown
 	end
 	
-	print("Wall damaged! Health: " .. healthValue.Value ..  "/" .. maxHealthValue.Value)
+	print("Wall damaged! Health: " .. healthValue.Value .. "/" .. maxHealthValue.Value)
 	
 	-- Destroy if health depleted
 	if healthValue.Value <= 0 then
@@ -156,18 +168,20 @@ local function damageWall(wall, damage, attacker)
 		local explosion = Instance.new("Explosion")
 		explosion.Position = wall. Position
 		explosion.BlastRadius = 5
-		explosion.BlastPressure = 0 -- No damage to players
+		explosion.BlastPressure = 0
 		explosion.Parent = workspace
 		
 		wall:Destroy()
-		print("Wall destroyed by " .. (attacker and attacker.Name or "unknown"))
+		print("Wall destroyed!")
 	end
 end
 
--- Listen for wall placement requests
+-- Listen for wall placement requests (UPDATED SIGNATURE)
 PlaceWallEvent.OnServerEvent:Connect(placeWall)
 
 -- Listen for wall damage requests
 DamageWallEvent.OnServerEvent:Connect(function(player, wall, damage)
 	damageWall(wall, damage, player. Character)
 end)
+
+print("WallServer loaded!")

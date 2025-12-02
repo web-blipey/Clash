@@ -1,16 +1,19 @@
-  18:28:12.546  Remote Events Created!  -  Server - SetupRemoteEvents:34
-  18:28:13.048  Animation Spoofer cannot run while game is running  -  Server
-  18:28:13.916  Animation Spoofer cannot run while game is running  -  Client
-  18:28:14.308  Workspace.GlobeGO.ShiftLockCamera:99: Expected ')' (to close '(' at column 28), got '4'  -  Studio - ShiftLockCamera:99
-  18:28:14.326  UI Setup Complete!  -  Client - SetupUI:75
-  18:28:14.327  BuildingSystem loaded!  -  Client - BuildingSystem:218
-  18:28:14.328  PlayerController loaded!  -  Client - PlayerController:219
-  18:28:14.845  Melee attack!  -  Client - PlayerController:62
-  18:28:15.112  Build mode ACTIVATED  -  Client - BuildingSystem:166
-  18:28:15.113  Preview created and visible!  -  Client - BuildingSystem:73
-  18:28:16.594  Wall placed! Remaining: 2  -  Client - BuildingSystem:146
-  18:28:16.595  Build mode DEACTIVATED  -  Client - BuildingSystem:169
-  18:28:16.627  GlobeGO placed a wall!  -  Server - WallServer:132
-  18:28:16.628  Wall Data Created!  -  Server - CreateWallData:19
-  18:28:28.229  Melee attack!  -  Client - PlayerController:62
-  18:28:44.131  Disconnect from 127.0.0.1|64079  -  Studio
+  18:41:05.627  Remote Events Created!  -  Server - SetupRemoteEvents:34
+  18:41:05.627  WallServer loaded!  -  Server - WallServer:187
+  18:41:06.480  Animation Spoofer cannot run while game is running  -  Server
+  18:41:06.949  Animation Spoofer cannot run while game is running  -  Client
+  18:41:07.309  Default camera module found - disabling...  -  Client - DisableDefaultCamera:18
+  18:41:07.309  ✓ Default camera disabled successfully  -  Client - DisableDefaultCamera:24
+  18:41:07.309  ✓ Camera overrides applied  -  Client - DisableDefaultCamera:34
+  18:41:07.331  Workspace.GlobeGO.ShiftLockCamera:14: Expected identifier when parsing expression, got '5'  -  Studio - ShiftLockCamera:14
+  18:41:07.359  UI Setup Complete!  -  Client - SetupUI:75
+  18:41:07.360  BuildingSystem loaded!  -  Client - BuildingSystem:233
+  18:41:07.360  ✓ Default controls disabled  -  Client - PlayerController:21
+  18:41:07.360  ✓ PlayerController loaded!  -  Client - PlayerController:217
+  18:41:13.167  Build mode ACTIVATED  -  Client - BuildingSystem:181
+  18:41:13.168  Preview created and visible!  -  Client - BuildingSystem:85
+  18:41:13.916  Wall placed!  Remaining: 2  -  Client - BuildingSystem:159
+  18:41:13.917  Build mode DEACTIVATED  -  Client - BuildingSystem:184
+  18:41:13.947  GlobeGO placed a wall at rotation: 0  -  Server - WallServer:144
+  18:41:13.947  Wall Data Created!  -  Server - CreateWallData:19
+  18:41:23.757  Disconnect from 127.0.0.1|55804  -  Studio
