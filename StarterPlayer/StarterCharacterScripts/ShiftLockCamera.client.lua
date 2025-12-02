@@ -11,9 +11,9 @@ local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 local camera = workspace.CurrentCamera
 
 -- Shoulder Surf Settings (Elden Ring style)
-local CAMERA_OFFSET = Vector3.new(2, 2, 8) -- Right shoulder offset
-local CAMERA_HEIGHT_OFFSET = 1.5
-local CAMERA_SMOOTHNESS = 0.15
+local CAMERA_OFFSET = Vector3.new(2, 2, 8) -- Right shoulder offset (X, Y, Distance from character)
+local CAMERA_HEIGHT_OFFSET = 1. 5
+local CAMERA_SMOOTHNESS = 0. 15
 local MOUSE_SENSITIVITY = 0.003
 local COMBAT_FOV = 70
 
@@ -32,27 +32,20 @@ crosshair.Size = UDim2. new(0, 20, 0, 20)
 crosshair.Position = UDim2.new(0.5, -10, 0.5, -10)
 crosshair.BackgroundTransparency = 1
 crosshair.Image = "rbxasset://textures/ui/MouseLockedCursor.png"
-crosshair. ImageColor3 = Color3.fromRGB(255, 255, 255)
+crosshair. ImageColor3 = Color3. fromRGB(255, 255, 255)
 crosshair.ImageTransparency = 0.3
 crosshair.Parent = screenGui
 
--- Set camera to scriptable FIRST
-camera.CameraType = Enum.CameraType.Scriptable
+-- Set camera to scriptable
+camera.CameraType = Enum.CameraType. Scriptable
 camera.CameraSubject = humanoid
 
--- Initialize immediately
+-- Initialize
 task.spawn(function()
-	-- Small delay to ensure character is loaded
 	task.wait(0.1)
 	
-	-- Force third person settings
-	UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+	UserInputService.MouseBehavior = Enum.MouseBehavior. LockCenter
 	UserInputService.MouseIconEnabled = false
-	
-	-- Set initial camera position (THIRD PERSON)
-	local initialCFrame = CFrame.new(humanoidRootPart.Position)
-		* CFrame.new(CAMERA_OFFSET)
-	camera.CFrame = initialCFrame
 	
 	print("✓ Camera initialized in THIRD PERSON")
 end)
@@ -60,7 +53,7 @@ end)
 -- Update camera position and rotation
 local function updateCamera()
 	if not character or not character. Parent then return end
-	if not humanoidRootPart or not humanoidRootPart. Parent then return end
+	if not humanoidRootPart or not humanoidRootPart.Parent then return end
 	if not humanoid or humanoid.Health <= 0 then return end
 	
 	-- Get mouse delta for camera rotation
@@ -74,31 +67,33 @@ local function updateCamera()
 	cameraAngleX = math.clamp(cameraAngleX, -1. 4, 1.4)
 	
 	-- Rotate character to face camera direction (smoothly)
-	local targetCFrame = CFrame.new(humanoidRootPart.Position) * CFrame.Angles(0, cameraAngleY, 0)
+	local targetCFrame = CFrame.new(humanoidRootPart.Position) * CFrame. Angles(0, cameraAngleY, 0)
 	humanoidRootPart.CFrame = humanoidRootPart.CFrame:Lerp(targetCFrame, 0.3)
 	
-	-- Calculate focus point
-	local heightOffset = Vector3.new(0, CAMERA_HEIGHT_OFFSET, 0)
-	local focusPoint = humanoidRootPart.Position + heightOffset
+	-- Calculate focus point (where camera looks at)
+	local focusPoint = humanoidRootPart.Position + Vector3.new(0, CAMERA_HEIGHT_OFFSET, 0)
 	
-	-- Create camera CFrame with offset (THIRD PERSON)
+	-- Calculate camera position BEHIND and to the side of character
 	local cameraCFrame = CFrame.new(humanoidRootPart.Position)
-		* CFrame. Angles(0, cameraAngleY, 0)
-		* CFrame. Angles(cameraAngleX, 0, 0)
-		* CFrame.new(CAMERA_OFFSET) -- This creates the distance! 
+		* CFrame.Angles(0, cameraAngleY, 0) -- Rotate around character
+		* CFrame.Angles(cameraAngleX, 0, 0) -- Vertical tilt
+		* CFrame.new(CAMERA_OFFSET) -- Move camera back and to side
+	
+	-- Get the camera position from the CFrame
+	local cameraPosition = cameraCFrame.Position
+	
+	-- Create final camera CFrame looking at focus point
+	local finalCFrame = CFrame.new(cameraPosition, focusPoint)
 	
 	-- Smooth camera movement
-	camera.CFrame = camera.CFrame:Lerp(cameraCFrame, CAMERA_SMOOTHNESS)
-	
-	-- Make camera look at focus point
-	camera.CFrame = CFrame.new(camera.CFrame.Position, focusPoint)
+	camera.CFrame = camera.CFrame:Lerp(finalCFrame, CAMERA_SMOOTHNESS)
 	
 	-- Set FOV
 	camera.FieldOfView = COMBAT_FOV
 	
 	-- Keep camera type locked
-	if camera.CameraType ~= Enum.CameraType. Scriptable then
-		camera. CameraType = Enum.CameraType.Scriptable
+	if camera.CameraType ~= Enum.CameraType.Scriptable then
+		camera.CameraType = Enum.CameraType.Scriptable
 	end
 end
 
@@ -115,7 +110,7 @@ player.CharacterAdded:Connect(function(newCharacter)
 	cameraAngleY = 0
 	
 	task.wait(0.1)
-	camera.CameraType = Enum. CameraType.Scriptable
+	camera.CameraType = Enum.CameraType. Scriptable
 	camera.CameraSubject = humanoid
 	UserInputService.MouseBehavior = Enum.MouseBehavior. LockCenter
 	UserInputService.MouseIconEnabled = false

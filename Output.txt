@@ -1,19 +1,12 @@
-  23:36:24.230  Remote Events Created!  -  Server - SetupRemoteEvents:34
-  23:36:24.231  WallServer loaded!  -  Server - WallServer:187
-  23:36:25.073  Animation Spoofer cannot run while game is running  -  Server
-  23:36:25.776  Animation Spoofer cannot run while game is running  -  Client
-  23:36:26.101  Default camera module found - disabling...  -  Client - DisableDefaultCamera:18
-  23:36:26.101  ✓ Default camera disabled successfully  -  Client - DisableDefaultCamera:24
-  23:36:26.101  ✓ Camera overrides applied  -  Client - DisableDefaultCamera:34
-  23:36:26.122  Workspace.GlobeGO.ShiftLockCamera:74: Expected ')' (to close '(' at column 27), got '4'  -  Studio - ShiftLockCamera:74
-  23:36:26.236  UI Setup Complete!  -  Client - SetupUI:75
-  23:36:26.238  ✓ BuildingSystem loaded!  -  Client - BuildingSystem:211
-  23:36:26.238  ✓ PlayerController loaded!  -  Client - PlayerController:181
-  23:36:26.975 ⚔️ Attack!  -  Client - PlayerController:58
-  23:36:28.847  Build mode ON  -  Client - BuildingSystem:164
-  23:36:28.848  Preview created upright!  -  Client - BuildingSystem:78
-  23:36:29.583  Wall placed!  Remaining: 2  -  Client - BuildingSystem:144
-  23:36:29.583  Build mode OFF  -  Client - BuildingSystem:167
-  23:36:29.612  GlobeGO placed a wall at rotation: 0  -  Server - WallServer:144
-  23:36:29.612  Wall Data Created!  -  Server - CreateWallData:19
-  23:36:35.989  Disconnect from 127.0.0.1|52356  -  Studio
+  23:41:43.519  Remote Events Created!  -  Server - SetupRemoteEvents:34
+  23:41:43.521  WallServer loaded!  -  Server - WallServer:187
+  23:41:43.696  Animation Spoofer cannot run while game is running  -  Server
+  23:41:44.819  Animation Spoofer cannot run while game is running  -  Client
+  23:41:45.153  Default camera module found - disabling...  -  Client - DisableDefaultCamera:18
+  23:41:45.153  ✓ Default camera disabled successfully  -  Client - DisableDefaultCamera:24
+  23:41:45.153  ✓ Camera overrides applied  -  Client - DisableDefaultCamera:34
+  23:41:45.178  Workspace.GlobeGO.ShiftLockCamera:15: Expected identifier when parsing expression, got '5'  -  Studio - ShiftLockCamera:15
+  23:41:45.209  UI Setup Complete!  -  Client - SetupUI:75
+  23:41:45.210  ✓ BuildingSystem loaded!  -  Client - BuildingSystem:211
+  23:41:45.211  ✓ PlayerController loaded!  -  Client - PlayerController:181
+  23:42:13.174  Disconnect from 127.0.0.1|54422  -  Studio
