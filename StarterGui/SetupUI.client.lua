@@ -61,11 +61,13 @@ controlsLabel.TextSize = 14
 controlsLabel. Font = Enum.Font. Gotham
 controlsLabel.Text = [[
 CONTROLS:
+WASD - Move
+Left Shift - Sprint
+Left Ctrl - Toggle Shift Lock
 B - Toggle Build Mode
 R - Rotate Wall
 Left Click - Place Wall / Attack
 E - Attack
-Shift - Sprint
 ]]
 controlsLabel.TextXAlignment = Enum.TextXAlignment.Left
 controlsLabel.Parent = screenGui

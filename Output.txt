@@ -1,29 +1,16 @@
-  18:04:02.827  Remote Events Created!  -  Server - SetupRemoteEvents:34
-  18:04:03.771  Animation Spoofer cannot run while game is running  -  Server
-  18:04:04.421  Animation Spoofer cannot run while game is running  -  Client
-  18:04:04.574  UI Setup Complete!  -  Client - SetupUI:73
-  18:04:04.576  BuildingSystem loaded!  -  Client - BuildingSystem:218
-  18:04:04.576  PlayerController loaded!  -  Client - PlayerController:156
-  18:04:19.884  Build mode ACTIVATED  -  Client - BuildingSystem:166
-  18:04:19.885  Preview created and visible!  -  Client - BuildingSystem:73
-  18:04:21.370  Wall placed! Remaining: 2  -  Client - BuildingSystem:146
-  18:04:21.370  Build mode DEACTIVATED  -  Client - BuildingSystem:169
-  18:04:21.401  GlobeGO placed a wall!  -  Server - WallServer:132
-  18:04:21.401  Wall Data Created!  -  Server - CreateWallData:19
-  18:04:22.685  Build mode ACTIVATED  -  Client - BuildingSystem:166
-  18:04:22.686  Preview created and visible!  -  Client - BuildingSystem:73
-  18:04:23.602  Wall placed! Remaining: 1  -  Client - BuildingSystem:146
-  18:04:23.602  Build mode DEACTIVATED  -  Client - BuildingSystem:169
-  18:04:23.633  GlobeGO placed a wall!  -  Server - WallServer:132
-  18:04:23.634  Wall Data Created!  -  Server - CreateWallData:19
-  18:04:36.835  Build mode ACTIVATED  -  Client - BuildingSystem:166
-  18:04:36.836  Preview created and visible!  -  Client - BuildingSystem:73
-  18:04:37.402  Wall placed! Remaining: 0  -  Client - BuildingSystem:146
-  18:04:37.402  Build mode DEACTIVATED  -  Client - BuildingSystem:169
-  18:04:37.433  GlobeGO placed a wall!  -  Server - WallServer:132
-  18:04:37.434  Wall Data Created!  -  Server - CreateWallData:19
-  18:04:38.417  Build mode ACTIVATED  -  Client - BuildingSystem:166
-  18:04:38.418  Preview created and visible!  -  Client - BuildingSystem:73
-  18:04:38.519  Cannot place wall!  3/3  -  Client - BuildingSystem:133
-  18:04:39.368  Build mode DEACTIVATED  -  Client - BuildingSystem:169
-  18:04:44.874  Disconnect from 127.0.0.1|56063  -  Studio
+  18:28:12.546  Remote Events Created!  -  Server - SetupRemoteEvents:34
+  18:28:13.048  Animation Spoofer cannot run while game is running  -  Server
+  18:28:13.916  Animation Spoofer cannot run while game is running  -  Client
+  18:28:14.308  Workspace.GlobeGO.ShiftLockCamera:99: Expected ')' (to close '(' at column 28), got '4'  -  Studio - ShiftLockCamera:99
+  18:28:14.326  UI Setup Complete!  -  Client - SetupUI:75
+  18:28:14.327  BuildingSystem loaded!  -  Client - BuildingSystem:218
+  18:28:14.328  PlayerController loaded!  -  Client - PlayerController:219
+  18:28:14.845  Melee attack!  -  Client - PlayerController:62
+  18:28:15.112  Build mode ACTIVATED  -  Client - BuildingSystem:166
+  18:28:15.113  Preview created and visible!  -  Client - BuildingSystem:73
+  18:28:16.594  Wall placed! Remaining: 2  -  Client - BuildingSystem:146
+  18:28:16.595  Build mode DEACTIVATED  -  Client - BuildingSystem:169
+  18:28:16.627  GlobeGO placed a wall!  -  Server - WallServer:132
+  18:28:16.628  Wall Data Created!  -  Server - CreateWallData:19
+  18:28:28.229  Melee attack!  -  Client - PlayerController:62
+  18:28:44.131  Disconnect from 127.0.0.1|64079  -  Studio
