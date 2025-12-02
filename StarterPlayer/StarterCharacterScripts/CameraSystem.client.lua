@@ -47,7 +47,7 @@ task.spawn(function()
 end)
 
 -- FORCE camera to scriptable
-camera.CameraType = Enum.CameraType. Scriptable
+camera.CameraType = Enum. CameraType.Scriptable
 
 -- Lock cursor
 UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
@@ -67,8 +67,8 @@ local function updateCamera()
     end
     
     -- Keep mouse locked
-    if UserInputService.MouseBehavior ~= Enum.MouseBehavior.LockCenter then
-        UserInputService.MouseBehavior = Enum.MouseBehavior. LockCenter
+    if UserInputService. MouseBehavior ~= Enum.MouseBehavior.LockCenter then
+        UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
     end
     
     -- Get mouse movement
@@ -110,24 +110,24 @@ if screenGui then
     crosshair.AnchorPoint = Vector2.new(0.5, 0. 5)
     crosshair. Position = UDim2.new(0.5, 0, 0.5, 0)
     crosshair.Size = UDim2.new(0, 4, 0, 4)
-    crosshair.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    crosshair. BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     crosshair.BorderSizePixel = 0
     crosshair.Parent = screenGui
     
     local horizontal = Instance.new("Frame")
-    horizontal.AnchorPoint = Vector2.new(0.5, 0. 5)
-    horizontal.Position = UDim2.new(0.5, 0, 0.5, 0)
-    horizontal.Size = UDim2.new(0, 20, 0, 2)
+    horizontal.AnchorPoint = Vector2.new(0.5, 0.5)
+    horizontal.Position = UDim2.new(0. 5, 0, 0. 5, 0)
+    horizontal.Size = UDim2. new(0, 20, 0, 2)
     horizontal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     horizontal.BorderSizePixel = 0
     horizontal.Parent = crosshair
     
     local vertical = Instance.new("Frame")
-    vertical.AnchorPoint = Vector2.new(0.5, 0.5)
+    vertical.AnchorPoint = Vector2.new(0. 5, 0.5)
     vertical.Position = UDim2.new(0.5, 0, 0.5, 0)
     vertical.Size = UDim2.new(0, 2, 0, 20)
-    vertical.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    vertical.BorderSizePixel = 0
+    vertical.BackgroundColor3 = Color3. fromRGB(255, 255, 255)
+    vertical. BorderSizePixel = 0
     vertical.Parent = crosshair
 end
 
@@ -146,9 +146,9 @@ player.CharacterAdded:Connect(function(newChar)
     
     task.wait(0.1)
     
-    camera.CameraType = Enum. CameraType.Scriptable
+    camera.CameraType = Enum.CameraType.Scriptable
     camera.CameraSubject = humanoid
-    UserInputService.MouseBehavior = Enum.MouseBehavior. LockCenter
+    UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
     UserInputService.MouseIconEnabled = false
     
     cameraConnection = RunService.RenderStepped:Connect(updateCamera)
@@ -156,7 +156,7 @@ end)
 
 -- Cleanup
 character. AncestryChanged:Connect(function()
-    if not character. Parent and cameraConnection then
+    if not character.Parent and cameraConnection then
         cameraConnection:Disconnect()
     end
 end)
