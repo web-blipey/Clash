@@ -1,34 +1,33 @@
--- Place in StarterPlayer > StarterPlayerScripts (as a LocalScript)
+-- Place in StarterPlayer > StarterPlayerScripts
 
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
--- Wait for PlayerModule
-task.wait(1)
+-- IMPORTANT: Set these BEFORE trying to disable the default camera
+player.CameraMaxZoomDistance = 128
+player.CameraMinZoomDistance = 0.5
+player.CameraMode = Enum. CameraMode.Classic
 
-local playerScripts = player:WaitForChild("PlayerScripts")
+print("✓ Camera settings applied FIRST")
 
--- Try to disable default camera module
+-- Now try to disable default camera module
+task.wait(0.5)
+
 local success, err = pcall(function()
-	local playerModule = require(playerScripts:WaitForChild("PlayerModule"))
+	local playerModule = require(player:WaitForChild("PlayerScripts"):WaitForChild("PlayerModule"))
 	local cameraModule = playerModule:GetCameras()
 	
-	-- Disable camera updates
 	if cameraModule then
-		print("Default camera module found - disabling...")
-		-- The module will still exist but won't update
+		print("Default camera module found - will be overridden by custom camera")
 	end
 end)
 
-if success then
-	print("✓ Default camera disabled successfully")
-else
-	warn("Could not disable default camera:", err)
-end
-
--- Force camera settings
-player.CameraMaxZoomDistance = 0.5
+-- Force settings again after module loads
+player.CameraMaxZoomDistance = 128
 player.CameraMinZoomDistance = 0.5
-player.CameraMode = Enum.CameraMode. LockFirstPerson
+player.CameraMode = Enum.CameraMode. Classic
 
 print("✓ Camera overrides applied")
+print("   Max Zoom:", player.CameraMaxZoomDistance)
+print("   Min Zoom:", player.CameraMinZoomDistance)
+print("   Camera Mode:", player.CameraMode)

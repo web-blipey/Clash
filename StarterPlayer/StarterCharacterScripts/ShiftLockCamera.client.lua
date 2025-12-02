@@ -10,23 +10,10 @@ local humanoid = character:WaitForChild("Humanoid")
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 local camera = workspace.CurrentCamera
 
--- DISABLE DEFAULT CAMERA COMPLETELY
-task.spawn(function()
-	local PlayerModule = require(player:WaitForChild("PlayerScripts"):WaitForChild("PlayerModule"))
-	local CameraModule = PlayerModule:GetCameras()
-	
-	-- Completely disable the default camera module
-	for _, connection in pairs(getconnections(RunService.RenderStepped)) do
-		if connection.Function and debug.getinfo(connection.Function). source:match("CameraModule") then
-			connection:Disable()
-		end
-	end
-end)
-
 -- Camera Settings
-local CAMERA_DISTANCE = 8 -- Distance behind character
-local CAMERA_HEIGHT = 2 -- Height above character
-local CAMERA_SIDE_OFFSET = 2 -- Right shoulder offset
+local CAMERA_DISTANCE = 8
+local CAMERA_HEIGHT = 2
+local CAMERA_SIDE_OFFSET = 2
 local CAMERA_SMOOTHNESS = 0.15
 local MOUSE_SENSITIVITY = 0.003
 local COMBAT_FOV = 70
@@ -42,7 +29,7 @@ local screenGui = playerGui:WaitForChild("BuildingUI")
 -- Create crosshair
 local crosshair = Instance.new("ImageLabel")
 crosshair.Name = "Crosshair"
-crosshair.Size = UDim2.new(0, 20, 0, 20)
+crosshair.Size = UDim2. new(0, 20, 0, 20)
 crosshair.Position = UDim2.new(0.5, -10, 0.5, -10)
 crosshair.BackgroundTransparency = 1
 crosshair.Image = "rbxasset://textures/ui/MouseLockedCursor.png"
@@ -51,15 +38,12 @@ crosshair.ImageTransparency = 0.3
 crosshair.Parent = screenGui
 
 -- FORCE camera settings
-camera.CameraType = Enum. CameraType.Scriptable
-UserInputService.MouseBehavior = Enum.MouseBehavior. LockCenter
-UserInputService. MouseIconEnabled = false
-
-print("🎥 Camera Type:", camera.CameraType)
-print("🎥 Camera Distance should be:", CAMERA_DISTANCE)
+camera.CameraType = Enum. CameraType. Scriptable
+UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
+UserInputService.MouseIconEnabled = false
 
 -- Update camera every frame
-local function updateCamera(dt)
+local function updateCamera()
 	if not character or not character.Parent then return end
 	if not humanoidRootPart or not humanoidRootPart.Parent then return end
 	if not humanoid or humanoid.Health <= 0 then return end
@@ -69,7 +53,7 @@ local function updateCamera(dt)
 	
 	-- Update camera angles
 	cameraAngleY = cameraAngleY - mouseDelta.X * MOUSE_SENSITIVITY
-	cameraAngleX = cameraAngleX - mouseDelta. Y * MOUSE_SENSITIVITY
+	cameraAngleX = cameraAngleX - mouseDelta.Y * MOUSE_SENSITIVITY
 	cameraAngleX = math.clamp(cameraAngleX, -1. 4, 1.4)
 	
 	-- Rotate character to face camera direction
@@ -93,19 +77,15 @@ local function updateCamera(dt)
 	local focusPosition = rootPosition + Vector3.new(0, 1. 5, 0)
 	
 	-- Create camera CFrame looking at character
-	local targetCFrame = CFrame.lookAt(cameraPosition, focusPosition)
+	local targetCameraFrame = CFrame.lookAt(cameraPosition, focusPosition)
 	
 	-- Smooth transition
-	camera.CFrame = camera.CFrame:Lerp(targetCFrame, CAMERA_SMOOTHNESS)
-	camera.FieldOfView = COMBAT_FOV
-	camera.CameraType = Enum.CameraType. Scriptable
+	camera.CFrame = camera.CFrame:Lerp(targetCameraFrame, CAMERA_SMOOTHNESS)
+	camera. FieldOfView = COMBAT_FOV
 	
-	-- Debug: Print distance every 60 frames
-	if tick() % 1 < 0.016 then
-		local currentDistance = (camera.CFrame.Position - rootPosition).Magnitude
-		if currentDistance < 2 then
-			warn("⚠️ CAMERA TOO CLOSE! Distance:", currentDistance, "Should be:", CAMERA_DISTANCE)
-		end
+	-- Keep camera type locked
+	if camera.CameraType ~= Enum.CameraType. Scriptable then
+		camera. CameraType = Enum.CameraType.Scriptable
 	end
 end
 
@@ -122,7 +102,7 @@ player.CharacterAdded:Connect(function(newCharacter)
 	cameraAngleY = 0
 	
 	task.wait(0.1)
-	camera.CameraType = Enum.CameraType. Scriptable
+	camera.CameraType = Enum. CameraType.Scriptable
 	UserInputService.MouseBehavior = Enum.MouseBehavior. LockCenter
 	UserInputService.MouseIconEnabled = false
 end)
