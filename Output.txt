@@ -1,8 +1,9 @@
-  00:20:48.015  Remote Events Created!  -  Server - SetupRemoteEvents:34
-  00:20:48.015  WallServer loaded!  -  Server - WallServer:187
-  00:20:48.589  Animation Spoofer cannot run while game is running  -  Server
-  00:20:49.410  Animation Spoofer cannot run while game is running  -  Client
-  00:20:49.775  Workspace.GlobeGO.CustomCameraSystem:116: Expected ')' (to close '(' at column 58), got '5'  -  Studio - CustomCameraSystem:116
-  00:20:49.807  UI Setup Complete!  -  Client - SetupUI:75
-  00:20:49.809  ✓ BuildingSystem loaded!  -  Client - BuildingSystem:211
-  00:20:49.809  ✓ PlayerController loaded!  -  Client - PlayerController:109
+  00:27:33.142  Remote Events Created!  -  Server - SetupRemoteEvents:34
+  00:27:33.144  WallServer loaded!  -  Server - WallServer:187
+  00:27:33.818  Animation Spoofer cannot run while game is running  -  Server
+  00:27:34.368  Animation Spoofer cannot run while game is running  -  Client
+  00:27:34.882  Workspace.GlobeGO.CameraSystem:93: Expected ')' (to close '(' at column 55), got '5'  -  Studio - CameraSystem:93
+  00:27:34.915  UI Setup Complete!  -  Client - SetupUI:75
+  00:27:34.916  ✓ BuildingSystem loaded!  -  Client - BuildingSystem:211
+  00:27:34.916  ✓ PlayerController loaded!  -  Client - PlayerController:109
+  00:27:41.764  Disconnect from 127.0.0.1|49238  -  Studio
