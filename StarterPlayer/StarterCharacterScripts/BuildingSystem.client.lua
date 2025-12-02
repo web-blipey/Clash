@@ -17,19 +17,17 @@ local gridManager = GridManager.new(4, 100, 100)
 -- Remote Events
 local RemoteEvents = ReplicatedStorage:WaitForChild("RemoteEvents")
 local PlaceWallEvent = RemoteEvents:WaitForChild("PlaceWall")
-local DestroyWallEvent = RemoteEvents:WaitForChild("DestroyWall")
 
 -- Building Settings
 local MAX_WALLS_PER_LIFE = 3
 local WALL_LIFETIME = 10
 local currentWallCount = 0
-local placedWalls = {}
 
 -- Build mode state
 _G.BuildModeActive = false
 local previewPart = nil
 local canPlace = false
-local currentRotationY = 0 -- Track Y rotation
+local currentRotationY = 0
 
 -- Wall template
 local wallTemplate = ReplicatedStorage:WaitForChild("WallTemplate")
@@ -39,14 +37,10 @@ local VALID_MATERIAL_COLOR = Color3.fromRGB(0, 255, 0)
 local INVALID_MATERIAL_COLOR = Color3.fromRGB(255, 0, 0)
 local PREVIEW_TRANSPARENCY = 0.5
 
--- UI Elements
+-- UI
 local playerGui = player:WaitForChild("PlayerGui")
 local screenGui = playerGui:WaitForChild("BuildingUI")
 local wallCountLabel = screenGui:WaitForChild("WallCountLabel")
-
--- Get the original rotation of the wall template (to fix custom mesh rotation)
-local originalWallCFrame = wallTemplate. CFrame
-local originalWallRotation = originalWallCFrame - originalWallCFrame.Position -- Extract rotation only
 
 -- Create preview part
 local function createPreview()
@@ -60,7 +54,7 @@ local function createPreview()
 	previewPart.Anchored = true
 	previewPart. Transparency = PREVIEW_TRANSPARENCY
 	
-	-- Make all descendants non-collidable and transparent
+	-- Make all descendants transparent and non-collidable
 	for _, child in pairs(previewPart:GetDescendants()) do
 		if child:IsA("BasePart") then
 			child. CanCollide = false
@@ -68,51 +62,45 @@ local function createPreview()
 		end
 	end
 	
-	-- Put preview in workspace
 	previewPart.Parent = workspace
-	
-	-- Reset rotation counter
 	currentRotationY = 0
 	
-	-- Position it in front of player initially (UPRIGHT)
-	local frontPosition = humanoidRootPart.Position + humanoidRootPart.CFrame.LookVector * 10
+	-- Position upright in front of player
+	local frontPosition = humanoidRootPart. Position + humanoidRootPart.CFrame.LookVector * 10
 	local snappedPos = gridManager:SnapToGrid(frontPosition)
 	
-	-- Make wall UPRIGHT - keep it vertical
-	previewPart.CFrame = CFrame.new(snappedPos + Vector3.new(0, wallTemplate.Size.Y / 2, 0)) 
-		* CFrame.Angles(0, 0, 0) -- No rotation - perfectly upright
+	-- KEY FIX: Make wall UPRIGHT (vertical)
+	-- Orientation is (X, Y, Z) where X=pitch, Y=yaw, Z=roll
+	-- Set X and Z to 0 to keep it vertical, only Y for rotation
+	previewPart.CFrame = CFrame.new(snappedPos + Vector3.new(0, wallTemplate.Size.Y / 2, 0))
+	previewPart. Orientation = Vector3.new(0, 0, 0) -- Completely upright
 	
-	print("Preview created and visible!")
+	print("Preview created upright!")
 end
 
--- Update preview position and validity
+-- Update preview
 local function updatePreview()
 	if not previewPart or not _G.BuildModeActive then return end
 	
-	-- Get mouse position in world
 	local mouse = player:GetMouse()
-	
-	-- Raycast from camera to mouse position
 	local camera = workspace.CurrentCamera
 	local mouseRay = camera:ScreenPointToRay(mouse.X, mouse.Y)
 	
-	local raycastParams = RaycastParams. new()
-	raycastParams. FilterDescendantsInstances = {character, previewPart}
+	local raycastParams = RaycastParams.new()
+	raycastParams.FilterDescendantsInstances = {character, previewPart}
 	raycastParams.FilterType = Enum. RaycastFilterType.Blacklist
 	
-	local rayResult = workspace:Raycast(mouseRay. Origin, mouseRay.Direction * 500, raycastParams)
+	local rayResult = workspace:Raycast(mouseRay.Origin, mouseRay.Direction * 500, raycastParams)
 	
 	if rayResult then
 		local hitPosition = rayResult.Position
-		
-		-- Snap to grid
 		local snappedPos = gridManager:SnapToGrid(hitPosition)
 		snappedPos = snappedPos + Vector3.new(0, wallTemplate.Size.Y / 2, 0)
 		
-		-- Keep wall UPRIGHT with current Y rotation
-		previewPart. CFrame = CFrame.new(snappedPos) * CFrame.Angles(0, math.rad(currentRotationY), 0)
+		-- Keep wall UPRIGHT with Y rotation only
+		previewPart.CFrame = CFrame.new(snappedPos) * CFrame.Angles(0, math.rad(currentRotationY), 0)
 		
-		-- Check if placement is valid
+		-- Check validity
 		local gridPos = gridManager:WorldToGrid(snappedPos)
 		local wallData = wallTemplate:FindFirstChild("WallData")
 		local sizeX = wallData and wallData.SizeX. Value or 1
@@ -121,22 +109,20 @@ local function updatePreview()
 		canPlace = currentWallCount < MAX_WALLS_PER_LIFE and 
 		           gridManager:CanPlaceStructure(gridPos, sizeX, sizeZ)
 		
-		-- Update preview color
+		-- Update color
 		local color = canPlace and VALID_MATERIAL_COLOR or INVALID_MATERIAL_COLOR
-		previewPart. Color = color
+		previewPart.Color = color
 		for _, child in pairs(previewPart:GetDescendants()) do
 			if child:IsA("BasePart") then
 				child.Color = color
 			end
 		end
 	else
-		-- If no hit, place in front of player
+		-- Default position in front
 		local frontPosition = humanoidRootPart.Position + humanoidRootPart.CFrame.LookVector * 10
 		local snappedPos = gridManager:SnapToGrid(frontPosition)
 		snappedPos = snappedPos + Vector3.new(0, wallTemplate.Size.Y / 2, 0)
-		
-		-- Keep wall UPRIGHT
-		previewPart.CFrame = CFrame.new(snappedPos) * CFrame. Angles(0, math.rad(currentRotationY), 0)
+		previewPart.CFrame = CFrame.new(snappedPos) * CFrame.Angles(0, math.rad(currentRotationY), 0)
 	end
 end
 
@@ -148,17 +134,14 @@ local function placeWall()
 	end
 	
 	local position = previewPart.CFrame.Position
-	local rotationY = currentRotationY -- Send current Y rotation
+	local rotationY = currentRotationY
 	
-	-- Send to server to create wall (upright with Y rotation)
 	PlaceWallEvent:FireServer(position, rotationY)
 	
 	currentWallCount = currentWallCount + 1
 	updateWallCountUI()
 	
 	print("Wall placed!  Remaining: " .. (MAX_WALLS_PER_LIFE - currentWallCount))
-	
-	-- Exit build mode after placing
 	toggleBuildMode()
 end
 
@@ -169,7 +152,7 @@ local function rotatePreview()
 		if currentRotationY >= 360 then
 			currentRotationY = 0
 		end
-		print("Preview rotated to: " ..  currentRotationY ..  " degrees")
+		print("Rotated to: " .. currentRotationY ..  "°")
 	end
 end
 
@@ -178,10 +161,10 @@ function toggleBuildMode()
 	_G.BuildModeActive = not _G.BuildModeActive
 	
 	if _G.BuildModeActive then
-		print("Build mode ACTIVATED")
+		print("Build mode ON")
 		createPreview()
 	else
-		print("Build mode DEACTIVATED")
+		print("Build mode OFF")
 		if previewPart then
 			previewPart:Destroy()
 			previewPart = nil
@@ -195,10 +178,9 @@ function updateWallCountUI()
 	wallCountLabel.Text = string.format("Walls: %d/%d", remaining, MAX_WALLS_PER_LIFE)
 end
 
--- Reset wall count on respawn
+-- Reset on death
 function resetWallCount()
 	currentWallCount = 0
-	placedWalls = {}
 	updateWallCountUI()
 	print("Wall count reset!")
 end
@@ -223,11 +205,7 @@ RunService.RenderStepped:Connect(function()
 	end
 end)
 
--- Listen for humanoid death to reset walls
-humanoid.Died:Connect(function()
-	resetWallCount()
-end)
-
--- Initialize
+humanoid.Died:Connect(resetWallCount)
 updateWallCountUI()
-print("BuildingSystem loaded!")
+
+print("✓ BuildingSystem loaded!")

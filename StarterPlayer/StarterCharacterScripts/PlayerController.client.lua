@@ -11,17 +11,6 @@ local humanoid = character:WaitForChild("Humanoid")
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 local camera = workspace.CurrentCamera
 
--- DISABLE DEFAULT MOVEMENT
-local PlayerModule
-pcall(function()
-	PlayerModule = require(player:WaitForChild("PlayerScripts"):WaitForChild("PlayerModule"))
-	local ControlModule = PlayerModule:GetControls()
-	if ControlModule then
-		ControlModule:Disable() -- Disable default WASD controls
-		print("✓ Default controls disabled")
-	end
-end)
-
 -- Player stats
 local playerClass = "Bruiser"
 local maxHealth = 100
@@ -39,10 +28,9 @@ local walkSpeed = 16
 local runSpeed = 20
 local isRunning = false
 
--- Set humanoid properties
 humanoid.MaxHealth = maxHealth
 humanoid. Health = maxHealth
-humanoid.WalkSpeed = walkSpeed
+humanoid. WalkSpeed = walkSpeed
 
 -- UI
 local playerGui = player:WaitForChild("PlayerGui")
@@ -60,98 +48,80 @@ local function updateUI()
 	classLabel.Text = "Class: " .. playerClass
 end
 
--- Melee attack function
+-- Melee attack
 local function performMeleeAttack()
 	if tick() - lastAttackTime < attackCooldown then
 		return
 	end
 	
 	lastAttackTime = tick()
+	print("⚔️ Attack!")
 	
-	print("⚔️ Melee attack!")
-	
-	-- Attack in the direction the character is facing
 	local attackDirection = humanoidRootPart.CFrame.LookVector
-	local rayOrigin = humanoidRootPart.Position + Vector3.new(0, 2, 0)
-	local rayDirection = attackDirection * meleeRange
-	
-	local raycastParams = RaycastParams. new()
-	raycastParams. FilterDescendantsInstances = {character}
-	raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
-	
-	local rayResult = workspace:Raycast(rayOrigin, rayDirection, raycastParams)
-	
-	-- Sphere detection for better hit detection
-	local attackPosition = humanoidRootPart.Position + attackDirection * (meleeRange / 2)
+	local attackPosition = humanoidRootPart. Position + attackDirection * (meleeRange / 2)
 	local hitParts = workspace:GetPartBoundsInRadius(attackPosition, meleeRange / 2)
-	
-	local hitSomething = false
 	
 	for _, part in pairs(hitParts) do
 		if part:IsDescendantOf(character) then continue end
 		
-		-- Check if hit another player
+		-- Hit player
 		local enemyCharacter = part:FindFirstAncestorOfClass("Model")
 		if enemyCharacter and enemyCharacter:FindFirstChild("Humanoid") then
 			local enemyHumanoid = enemyCharacter:FindFirstChild("Humanoid")
 			if enemyHumanoid and enemyHumanoid ~= humanoid then
 				DamageEvent:FireServer(enemyCharacter, meleeDamage)
-				hitSomething = true
-				print("✓ Hit player: " .. enemyCharacter. Name)
+				print("✓ Hit player!")
 			end
 		end
 		
-		-- Check if hit a wall
+		-- Hit wall
 		if part.Parent and part.Parent. Name:match("_Wall") then
-			local wall = part.Parent
 			local DamageWallEvent = RemoteEvents:FindFirstChild("DamageWall")
 			if DamageWallEvent then
-				DamageWallEvent:FireServer(wall, meleeDamage)
-				hitSomething = true
+				DamageWallEvent:FireServer(part.Parent, meleeDamage)
 				print("✓ Hit wall!")
 			end
 		end
 	end
 end
 
--- Custom movement handler (camera-relative)
-local function handleMovement(deltaTime)
+-- FIXED MOVEMENT: Check keys every frame, not on input events
+local function handleMovement()
 	if not isAlive then return end
 	
-	-- Get input
-	local moveDirection = Vector3.new()
+	-- Get current key states
+	local moveVector = Vector3.zero
 	
-	if UserInputService:IsKeyDown(Enum.KeyCode. W) then
-		moveDirection = moveDirection + Vector3.new(0, 0, -1)
+	if UserInputService:IsKeyDown(Enum.KeyCode.W) then
+		moveVector = moveVector + Vector3.new(0, 0, -1)
 	end
-	if UserInputService:IsKeyDown(Enum. KeyCode.S) then
-		moveDirection = moveDirection + Vector3.new(0, 0, 1)
+	if UserInputService:IsKeyDown(Enum.KeyCode.S) then
+		moveVector = moveVector + Vector3.new(0, 0, 1)
 	end
 	if UserInputService:IsKeyDown(Enum.KeyCode.A) then
-		moveDirection = moveDirection + Vector3.new(-1, 0, 0)
+		moveVector = moveVector + Vector3. new(-1, 0, 0)
 	end
-	if UserInputService:IsKeyDown(Enum. KeyCode.D) then
-		moveDirection = moveDirection + Vector3.new(1, 0, 0)
+	if UserInputService:IsKeyDown(Enum.KeyCode.D) then
+		moveVector = moveVector + Vector3.new(1, 0, 0)
 	end
 	
-	-- If there's input, move the character
-	if moveDirection. Magnitude > 0 then
-		moveDirection = moveDirection.Unit
+	-- Only move if there's input
+	if moveVector.Magnitude > 0 then
+		moveVector = moveVector.Unit
 		
-		-- Get camera direction (for camera-relative movement)
+		-- Get camera direction
 		local cameraCFrame = camera.CFrame
-		local cameraLook = cameraCFrame.LookVector
-		local cameraRight = cameraCFrame.RightVector
+		local cameraLook = Vector3.new(cameraCFrame. LookVector.X, 0, cameraCFrame.LookVector. Z). Unit
+		local cameraRight = Vector3.new(cameraCFrame.RightVector.X, 0, cameraCFrame.RightVector.Z).Unit
 		
-		-- Flatten to horizontal plane
-		cameraLook = Vector3.new(cameraLook.X, 0, cameraLook.Z). Unit
-		cameraRight = Vector3.new(cameraRight. X, 0, cameraRight.Z).Unit
+		-- Calculate world direction
+		local worldDirection = (cameraLook * -moveVector. Z) + (cameraRight * moveVector.X)
 		
-		-- Calculate world movement direction
-		local worldDirection = (cameraLook * -moveDirection. Z) + (cameraRight * moveDirection.X)
-		
-		-- Move humanoid
+		-- Move the humanoid
 		humanoid:Move(worldDirection, false)
+	else
+		-- Stop moving when no keys are pressed
+		humanoid:Move(Vector3.zero, false)
 	end
 end
 
@@ -167,7 +137,7 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
 	end
 	
 	-- Sprint
-	if input.KeyCode == Enum.KeyCode.LeftShift then
+	if input.KeyCode == Enum.KeyCode. LeftShift then
 		isRunning = true
 		humanoid.WalkSpeed = runSpeed
 	end
@@ -180,14 +150,13 @@ UserInputService.InputEnded:Connect(function(input)
 	end
 end)
 
--- Handle death
+-- Death/Respawn
 humanoid.Died:Connect(function()
 	isAlive = false
 	currentHealth = 0
 	updateUI()
 end)
 
--- Handle respawn
 player.CharacterAdded:Connect(function(newCharacter)
 	character = newCharacter
 	humanoid = character:WaitForChild("Humanoid")
@@ -195,23 +164,18 @@ player.CharacterAdded:Connect(function(newCharacter)
 	
 	currentHealth = maxHealth
 	isAlive = true
-	
 	humanoid.MaxHealth = maxHealth
 	humanoid.Health = maxHealth
-	
 	updateUI()
 end)
 
--- Initialize
 updateUI()
-
--- Health monitoring
 humanoid. HealthChanged:Connect(function(health)
 	currentHealth = health
 	updateUI()
 end)
 
--- Update movement every frame
+-- Update movement EVERY frame
 RunService.Heartbeat:Connect(handleMovement)
 
 print("✓ PlayerController loaded!")
