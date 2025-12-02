@@ -4,30 +4,29 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local player = Players.LocalPlayer
 
-print("🎮 Forcing Third Person Camera Settings...")
+print("🎮 Setting up Third Person Camera...")
 
--- Function to force settings
-local function forceSettings()
-	player.CameraMaxZoomDistance = 128
-	player.CameraMinZoomDistance = 0.5
-	player.CameraMode = Enum.CameraMode.Classic
-end
+-- Set camera zoom settings to allow third person
+player.CameraMaxZoomDistance = 128
+player.CameraMinZoomDistance = 0.5
 
--- Force immediately
-forceSettings()
+-- IMPORTANT: Use Classic mode so our script can take over
+player.CameraMode = Enum.CameraMode.Classic
 
--- Keep forcing every frame (aggressive!)
+-- Lock these settings every frame
 RunService.Heartbeat:Connect(function()
-	if player.CameraMaxZoomDistance ~= 128 or 
-	   player.CameraMinZoomDistance ~= 0. 5 or 
-	   player.CameraMode ~= Enum.CameraMode.Classic then
-		
-		warn("⚠️ Camera settings were changed!  Forcing back to third person...")
-		forceSettings()
+	-- Only fix if they're wrong
+	if player.CameraMaxZoomDistance ~= 128 then
+		player.CameraMaxZoomDistance = 128
+	end
+	
+	if player.CameraMinZoomDistance ~= 0.5 then
+		player.CameraMinZoomDistance = 0. 5
+	end
+	
+	if player.CameraMode ~= Enum.CameraMode.Classic then
+		player.CameraMode = Enum.CameraMode.Classic
 	end
 end)
 
-print("✓ Camera settings locked to third person!")
-print("   CameraMaxZoomDistance:", player.CameraMaxZoomDistance)
-print("   CameraMinZoomDistance:", player.CameraMinZoomDistance)
-print("   CameraMode:", player.CameraMode)
+print("✓ Camera settings locked!")

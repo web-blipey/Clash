@@ -30,7 +30,7 @@ local isRunning = false
 
 humanoid.MaxHealth = maxHealth
 humanoid. Health = maxHealth
-humanoid. WalkSpeed = walkSpeed
+humanoid.WalkSpeed = walkSpeed
 
 -- UI
 local playerGui = player:WaitForChild("PlayerGui")
@@ -50,9 +50,7 @@ end
 
 -- Melee attack
 local function performMeleeAttack()
-	if tick() - lastAttackTime < attackCooldown then
-		return
-	end
+	if tick() - lastAttackTime < attackCooldown then return end
 	
 	lastAttackTime = tick()
 	print("⚔️ Attack!")
@@ -85,14 +83,14 @@ local function performMeleeAttack()
 	end
 end
 
--- FIXED MOVEMENT: Check keys every frame, not on input events
+-- Movement handler (camera-relative with shift lock)
 local function handleMovement()
 	if not isAlive then return end
 	
-	-- Get current key states
 	local moveVector = Vector3.zero
 	
-	if UserInputService:IsKeyDown(Enum.KeyCode.W) then
+	-- Get WASD input
+	if UserInputService:IsKeyDown(Enum. KeyCode.W) then
 		moveVector = moveVector + Vector3.new(0, 0, -1)
 	end
 	if UserInputService:IsKeyDown(Enum.KeyCode.S) then
@@ -105,22 +103,26 @@ local function handleMovement()
 		moveVector = moveVector + Vector3.new(1, 0, 0)
 	end
 	
-	-- Only move if there's input
+	-- If moving
 	if moveVector.Magnitude > 0 then
 		moveVector = moveVector.Unit
 		
-		-- Get camera direction
-		local cameraCFrame = camera.CFrame
-		local cameraLook = Vector3.new(cameraCFrame. LookVector.X, 0, cameraCFrame.LookVector. Z). Unit
-		local cameraRight = Vector3.new(cameraCFrame.RightVector.X, 0, cameraCFrame.RightVector.Z).Unit
+		-- With shift lock, character faces camera direction
+		-- So we move relative to the character's facing direction
+		local characterLookVector = humanoidRootPart.CFrame.LookVector
+		local characterRightVector = humanoidRootPart.CFrame.RightVector
 		
-		-- Calculate world direction
-		local worldDirection = (cameraLook * -moveVector. Z) + (cameraRight * moveVector.X)
+		-- Flatten to horizontal plane
+		characterLookVector = Vector3.new(characterLookVector.X, 0, characterLookVector.Z). Unit
+		characterRightVector = Vector3.new(characterRightVector.X, 0, characterRightVector.Z).Unit
+		
+		-- Calculate movement direction
+		local moveDirection = (characterLookVector * -moveVector.Z) + (characterRightVector * moveVector.X)
 		
 		-- Move the humanoid
-		humanoid:Move(worldDirection, false)
+		humanoid:Move(moveDirection, false)
 	else
-		-- Stop moving when no keys are pressed
+		-- Stop when no input
 		humanoid:Move(Vector3.zero, false)
 	end
 end
@@ -130,7 +132,7 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
 	if gameProcessed then return end
 	
 	-- Attack
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.KeyCode == Enum. KeyCode.E then
+	if input.UserInputType == Enum.UserInputType. MouseButton1 or input.KeyCode == Enum. KeyCode.E then
 		if not _G.BuildModeActive then
 			performMeleeAttack()
 		end
@@ -151,7 +153,7 @@ UserInputService.InputEnded:Connect(function(input)
 end)
 
 -- Death/Respawn
-humanoid.Died:Connect(function()
+humanoid. Died:Connect(function()
 	isAlive = false
 	currentHealth = 0
 	updateUI()
@@ -175,7 +177,7 @@ humanoid. HealthChanged:Connect(function(health)
 	updateUI()
 end)
 
--- Update movement EVERY frame
+-- Update movement every frame
 RunService.Heartbeat:Connect(handleMovement)
 
 print("✓ PlayerController loaded!")

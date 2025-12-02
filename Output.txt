@@ -1,133 +1,191 @@
-  00:06:13.969  Remote Events Created!  -  Server - SetupRemoteEvents:34
-  00:06:13.969  WallServer loaded!  -  Server - WallServer:187
-  00:06:14.115  Players.GlobeGO.PlayerScripts.ForceThirdPerson:22: Expected 'then' when parsing if statement, got '5'  -  Studio - ForceThirdPerson:22
-  00:06:14.121  ✓ Camera settings applied FIRST  -  Client - DisableDefaultCamera:11
-  00:06:14.558  Animation Spoofer cannot run while game is running  -  Server
-  00:06:15.325  Animation Spoofer cannot run while game is running  -  Client
-  00:06:15.622  Default camera module found - will be overridden by custom camera  -  Client - DisableDefaultCamera:21
-  00:06:15.622  ✓ Camera overrides applied  -  Client - DisableDefaultCamera:30
-  00:06:15.622     Max Zoom: 128  -  Client - DisableDefaultCamera:31
-  00:06:15.623     Min Zoom: 0.5  -  Client - DisableDefaultCamera:32
-  00:06:15.623     Camera Mode: Enum.CameraMode.Classic  -  Client - DisableDefaultCamera:33
-  00:06:15.670  Workspace.GlobeGO.ShiftLockCamera:57: Expected ')' (to close '(' at column 27), got '4'  -  Studio - ShiftLockCamera:57
-  00:06:15.702  UI Setup Complete!  -  Client - SetupUI:75
-  00:06:15.703  ✓ BuildingSystem loaded!  -  Client - BuildingSystem:211
-  00:06:15.704  ✓ PlayerController loaded!  -  Client - PlayerController:181
-  00:06:16.427  ==================  -  Client - Debug:17
-  00:06:16.427  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:16.427  Camera Distance from Character: 12.96  -  Client - Debug:19
-  00:06:16.428  Camera Position: 7.039948463439941, 8.735238075256348, 10.223917961120605  -  Client - Debug:20
-  00:06:16.428  Character Position: 7.039948463439941, 3.999999761581421, -1.8501548767089844  -  Client - Debug:21
-  00:06:16.428  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:16.428  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:16.428  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:16.429  ==================  -  Client - Debug:25
-  00:06:17.423  ==================  -  Client - Debug:17
-  00:06:17.423  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:17.424  Camera Distance from Character: 13.94  -  Client - Debug:19
-  00:06:17.424  Camera Position: 7.962612628936768, 3.558408260345459, -16.448429107666016  -  Client - Debug:20
-  00:06:17.424  Character Position: -1.9781240224838257, 2.999999761581421, -6.679691791534424  -  Client - Debug:21
-  00:06:17.425  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:17.425  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:17.425  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:17.425  ==================  -  Client - Debug:25
-  00:06:18.423  ==================  -  Client - Debug:17
-  00:06:18.423  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:18.423  Camera Distance from Character: 26.5  -  Client - Debug:19
-  00:06:18.423  Camera Position: -14.167558670043945, 6.965526580810547, -28.702465057373047  -  Client - Debug:20
-  00:06:18.424  Character Position: 7.297983169555664, 2.999999761581421, -13.67214298248291  -  Client - Debug:21
-  00:06:18.424  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:18.424  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:18.424  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:18.425  ==================  -  Client - Debug:25
-  00:06:19.423  ==================  -  Client - Debug:17
-  00:06:19.423  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:19.424  Camera Distance from Character: 21.61  -  Client - Debug:19
-  00:06:19.424  Camera Position: 13.230579376220703, 6.364379405975342, -34.043060302734375  -  Client - Debug:20
-  00:06:19.425  Character Position: 12.485383987426758, 2.999999761581421, -12.703190803527832  -  Client - Debug:21
-  00:06:19.425  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:19.426  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:19.426  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:19.426  ==================  -  Client - Debug:25
-  00:06:20.425  ==================  -  Client - Debug:17
-  00:06:20.426  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:20.426  Camera Distance from Character: 9.83  -  Client - Debug:19
-  00:06:20.426  Camera Position: 4.642844200134277, 5.270744323730469, -12.678056716918945  -  Client - Debug:20
-  00:06:20.427  Character Position: 7.679140090942383, 2.999999761581421, -3.6035380363464355  -  Client - Debug:21
-  00:06:20.427  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:20.427  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:20.427  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:20.428  ==================  -  Client - Debug:25
-  00:06:21.426  ==================  -  Client - Debug:17
-  00:06:21.427  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:21.427  Camera Distance from Character: 9.98  -  Client - Debug:19
-  00:06:21.427  Camera Position: 6.156854629516602, 6.293078899383545, -3.208070755004883  -  Client - Debug:20
-  00:06:21.427  Character Position: -2.0917301177978516, 2.999979257583618, 1.3641999959945679  -  Client - Debug:21
-  00:06:21.427  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:21.428  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:21.428  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:21.428  ==================  -  Client - Debug:25
-  00:06:22.423  ==================  -  Client - Debug:17
-  00:06:22.423  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:22.424  Camera Distance from Character: 9.68  -  Client - Debug:19
-  00:06:22.424  Camera Position: 1.5241432189941406, 5.303977966308594, 4.429839134216309  -  Client - Debug:20
-  00:06:22.424  Character Position: 10.976327896118164, 3.999999761581421, 6.09650993347168  -  Client - Debug:21
-  00:06:22.425  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:22.425  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:22.425  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:22.426  ==================  -  Client - Debug:25
-  00:06:23.426  ==================  -  Client - Debug:17
-  00:06:23.426  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:23.426  Camera Distance from Character: 9.68  -  Client - Debug:19
-  00:06:23.426  Camera Position: 14.704566955566406, 4.303977966308594, 6.754083633422852  -  Client - Debug:20
-  00:06:23.427  Character Position: 24.15675163269043, 2.999999761581421, 8.420754432678223  -  Client - Debug:21
-  00:06:23.427  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:23.427  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:23.427  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:23.428  ==================  -  Client - Debug:25
-  00:06:24.427  ==================  -  Client - Debug:17
-  00:06:24.427  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:24.427  Camera Distance from Character: 9.68  -  Client - Debug:19
-  00:06:24.427  Camera Position: 19.956872940063477, 4.303977966308594, 7.68021297454834  -  Client - Debug:20
-  00:06:24.428  Character Position: 29.4090576171875, 2.999999761581421, 9.346883773803711  -  Client - Debug:21
-  00:06:24.428  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:24.428  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:24.428  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:24.429  ==================  -  Client - Debug:25
-  00:06:25.422  ==================  -  Client - Debug:17
-  00:06:25.423  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:25.423  Camera Distance from Character: 33.94  -  Client - Debug:19
-  00:06:25.423  Camera Position: -2.2208690643310547, 15.926342964172363, 8.429798126220703  -  Client - Debug:20
-  00:06:25.423  Character Position: 28.992298126220703, 2.999999761581421, 11.710420608520508  -  Client - Debug:21
-  00:06:25.423  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:25.423  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:25.424  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:25.424  ==================  -  Client - Debug:25
-  00:06:26.424  ==================  -  Client - Debug:17
-  00:06:26.425  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:26.425  Camera Distance from Character: 54.12  -  Client - Debug:19
-  00:06:26.425  Camera Position: -21.091625213623047, 22.834444046020508, 6.446410655975342  -  Client - Debug:20
-  00:06:26.426  Character Position: 28.992298126220703, 2.999999761581421, 11.710420608520508  -  Client - Debug:21
-  00:06:26.426  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:26.426  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:26.426  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:26.426  ==================  -  Client - Debug:25
-  00:06:27.424  ==================  -  Client - Debug:17
-  00:06:27.425  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:27.425  Camera Distance from Character: 1.45  -  Client - Debug:19
-  00:06:27.425  Camera Position: 28.562252044677734, 4.3762125968933105, 11.939080238342285  -  Client - Debug:20
-  00:06:27.426  Character Position: 28.992298126220703, 2.999999761581421, 11.710420608520508  -  Client - Debug:21
-  00:06:27.426  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:27.426  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:27.427  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:27.427  ==================  -  Client - Debug:25
-  00:06:28.424  ==================  -  Client - Debug:17
-  00:06:28.424  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
-  00:06:28.425  Camera Distance from Character: 17.31  -  Client - Debug:19
-  00:06:28.425  Camera Position: 14.001605987548828, 0.04246330261230469, 19.84971046447754  -  Client - Debug:20
-  00:06:28.426  Character Position: 28.992298126220703, 2.999999761581421, 11.710420608520508  -  Client - Debug:21
-  00:06:28.426  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
-  00:06:28.426  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
-  00:06:28.426  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
-  00:06:28.427  ==================  -  Client - Debug:25
-  00:06:29.385  Disconnect from 127.0.0.1|52147  -  Studio
+  00:13:35.725  Remote Events Created!  -  Server - SetupRemoteEvents:34
+  00:13:35.726  WallServer loaded!  -  Server - WallServer:187
+  00:13:35.855  Players.GlobeGO.PlayerScripts.ForceThirdPerson:24: Expected identifier when parsing expression, got '5'  -  Studio - ForceThirdPerson:24
+  00:13:35.888  ✓ Camera initialized for custom control  -  Client - DisableDefaultCamera:11
+  00:13:36.442  Animation Spoofer cannot run while game is running  -  Server
+  00:13:37.368  Animation Spoofer cannot run while game is running  -  Client
+  00:13:37.479  Workspace.GlobeGO.ShiftLockCamera:94: Expected ')' (to close '(' at column 27), got '4'  -  Studio - ShiftLockCamera:94
+  00:13:37.512  UI Setup Complete!  -  Client - SetupUI:75
+  00:13:37.513  ✓ BuildingSystem loaded!  -  Client - BuildingSystem:211
+  00:13:37.514  ✓ PlayerController loaded!  -  Client - PlayerController:183
+  00:13:38.483  ==================  -  Client - Debug:17
+  00:13:38.483  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:38.483  Camera Distance from Character: 12.96  -  Client - Debug:19
+  00:13:38.483  Camera Position: 4.914029121398926, 8.735238075256348, 13.71859359741211  -  Client - Debug:20
+  00:13:38.484  Character Position: 4.914029121398926, 3.999999761581421, 1.6445198059082031  -  Client - Debug:21
+  00:13:38.484  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:38.484  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:38.484  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:38.484  ==================  -  Client - Debug:25
+  00:13:39.486  ==================  -  Client - Debug:17
+  00:13:39.486  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:39.486  Camera Distance from Character: 12.96  -  Client - Debug:19
+  00:13:39.487  Camera Position: 4.914029121398926, 8.735238075256348, 13.71859359741211  -  Client - Debug:20
+  00:13:39.487  Character Position: 4.914029121398926, 3.999999761581421, 1.6445198059082031  -  Client - Debug:21
+  00:13:39.487  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:39.487  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:39.487  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:39.488  ==================  -  Client - Debug:25
+  00:13:40.481  ==================  -  Client - Debug:17
+  00:13:40.481  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:40.481  Camera Distance from Character: 12.96  -  Client - Debug:19
+  00:13:40.481  Camera Position: 4.914029121398926, 8.735238075256348, 13.71859359741211  -  Client - Debug:20
+  00:13:40.481  Character Position: 4.914029121398926, 3.999999761581421, 1.6445198059082031  -  Client - Debug:21
+  00:13:40.482  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:40.482  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:40.482  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:40.482  ==================  -  Client - Debug:25
+  00:13:41.482  ==================  -  Client - Debug:17
+  00:13:41.482  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:41.483  Camera Distance from Character: 12.96  -  Client - Debug:19
+  00:13:41.483  Camera Position: 4.914029121398926, 8.735238075256348, 13.71859359741211  -  Client - Debug:20
+  00:13:41.483  Character Position: 4.914029121398926, 3.999999761581421, 1.6445198059082031  -  Client - Debug:21
+  00:13:41.484  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:41.484  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:41.484  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:41.484  ==================  -  Client - Debug:25
+  00:13:42.481  ==================  -  Client - Debug:17
+  00:13:42.481  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:42.482  Camera Distance from Character: 12.96  -  Client - Debug:19
+  00:13:42.482  Camera Position: 4.914029121398926, 8.735238075256348, 13.71859359741211  -  Client - Debug:20
+  00:13:42.482  Character Position: 4.914029121398926, 3.999999761581421, 1.6445198059082031  -  Client - Debug:21
+  00:13:42.482  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:42.482  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:42.482  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:42.482  ==================  -  Client - Debug:25
+  00:13:43.482  ==================  -  Client - Debug:17
+  00:13:43.483  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:43.483  Camera Distance from Character: 12.96  -  Client - Debug:19
+  00:13:43.483  Camera Position: 4.914029121398926, 8.735238075256348, 13.71859359741211  -  Client - Debug:20
+  00:13:43.484  Character Position: 4.914029121398926, 3.999999761581421, 1.6445198059082031  -  Client - Debug:21
+  00:13:43.484  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:43.485  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:43.485  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:43.485  ==================  -  Client - Debug:25
+  00:13:44.484  ==================  -  Client - Debug:17
+  00:13:44.484  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:44.485  Camera Distance from Character: 12.96  -  Client - Debug:19
+  00:13:44.485  Camera Position: 4.914029121398926, 8.735238075256348, 13.71859359741211  -  Client - Debug:20
+  00:13:44.485  Character Position: 4.914029121398926, 3.999999761581421, 1.6445198059082031  -  Client - Debug:21
+  00:13:44.485  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:44.486  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:44.486  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:44.486  ==================  -  Client - Debug:25
+  00:13:45.482  ==================  -  Client - Debug:17
+  00:13:45.482  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:45.482  Camera Distance from Character: 12.96  -  Client - Debug:19
+  00:13:45.482  Camera Position: 4.914029121398926, 8.735238075256348, 13.71859359741211  -  Client - Debug:20
+  00:13:45.483  Character Position: 4.914029121398926, 3.999999761581421, 1.6445198059082031  -  Client - Debug:21
+  00:13:45.483  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:45.483  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:45.483  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:45.483  ==================  -  Client - Debug:25
+  00:13:46.488  ==================  -  Client - Debug:17
+  00:13:46.488  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:46.488  Camera Distance from Character: 12.96  -  Client - Debug:19
+  00:13:46.488  Camera Position: 4.914029121398926, 8.735238075256348, 13.71859359741211  -  Client - Debug:20
+  00:13:46.488  Character Position: 4.914029121398926, 3.999999761581421, 1.6445198059082031  -  Client - Debug:21
+  00:13:46.489  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:46.489  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:46.489  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:46.489  ==================  -  Client - Debug:25
+  00:13:47.482  ==================  -  Client - Debug:17
+  00:13:47.482  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:47.483  Camera Distance from Character: 12.96  -  Client - Debug:19
+  00:13:47.484  Camera Position: 4.914029121398926, 8.735238075256348, 13.71859359741211  -  Client - Debug:20
+  00:13:47.484  Character Position: 4.914029121398926, 3.999999761581421, 1.6445198059082031  -  Client - Debug:21
+  00:13:47.484  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:47.484  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:47.485  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:47.485  ==================  -  Client - Debug:25
+  00:13:48.484  ==================  -  Client - Debug:17
+  00:13:48.484  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:48.484  Camera Distance from Character: 12.71  -  Client - Debug:19
+  00:13:48.485  Camera Position: 8.346439361572266, 6.587273597717285, -10.325709342956543  -  Client - Debug:20
+  00:13:48.485  Character Position: 4.914029121398926, 3.999999761581421, 1.6445198059082031  -  Client - Debug:21
+  00:13:48.485  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:48.485  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:48.486  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:48.486  ==================  -  Client - Debug:25
+  00:13:49.484  ==================  -  Client - Debug:17
+  00:13:49.484  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:49.485  Camera Distance from Character: 12.79  -  Client - Debug:19
+  00:13:49.485  Camera Position: 2.8037474155426025, 7.25435733795166, -7.4945197105407715  -  Client - Debug:20
+  00:13:49.485  Character Position: 5.165238857269287, 3.9995713233947754, 4.654311656951904  -  Client - Debug:21
+  00:13:49.485  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:49.486  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:49.486  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:49.486  ==================  -  Client - Debug:25
+  00:13:50.484  ==================  -  Client - Debug:17
+  00:13:50.485  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:50.485  Camera Distance from Character: 13.09  -  Client - Debug:19
+  00:13:50.485  Camera Position: 3.9977831840515137, 8.855106353759766, 18.38313865661621  -  Client - Debug:20
+  00:13:50.486  Character Position: -4.430563449859619, 2.999999761581421, 10.243971824645996  -  Client - Debug:21
+  00:13:50.486  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:50.486  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:50.487  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:50.487  ==================  -  Client - Debug:25
+  00:13:51.485  ==================  -  Client - Debug:17
+  00:13:51.485  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:51.486  Camera Distance from Character: 13.07  -  Client - Debug:19
+  00:13:51.486  Camera Position: -16.239980697631836, 8.618042945861816, -7.0954909324646  -  Client - Debug:20
+  00:13:51.486  Character Position: -6.939731121063232, 2.999999761581421, 0.17066900432109833  -  Client - Debug:21
+  00:13:51.486  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:51.486  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:51.486  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:51.486  ==================  -  Client - Debug:25
+  00:13:52.484  ==================  -  Client - Debug:17
+  00:13:52.484  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:52.485  Camera Distance from Character: 12.9  -  Client - Debug:19
+  00:13:52.485  Camera Position: 3.7188162803649902, 8.163864135742188, 12.628962516784668  -  Client - Debug:20
+  00:13:52.485  Character Position: 8.095512390136719, 3.999920606613159, 1.227298617362976  -  Client - Debug:21
+  00:13:52.485  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:52.485  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:52.486  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:52.486  ==================  -  Client - Debug:25
+  00:13:53.485  ==================  -  Client - Debug:17
+  00:13:53.485  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:53.486  Camera Distance from Character: 12.55  -  Client - Debug:19
+  00:13:53.486  Camera Position: 24.740598678588867, 4.2447614669799805, -12.31334114074707  -  Client - Debug:20
+  00:13:53.486  Character Position: 12.311666488647461, 2.999999761581421, -13.619682312011719  -  Client - Debug:21
+  00:13:53.486  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:53.486  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:53.487  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:53.487  ==================  -  Client - Debug:25
+  00:13:54.486  ==================  -  Client - Debug:17
+  00:13:54.487  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:54.487  Camera Distance from Character: 12.47  -  Client - Debug:19
+  00:13:54.487  Camera Position: 8.939558029174805, 3.573641777038574, -12.920960426330566  -  Client - Debug:20
+  00:13:54.487  Character Position: -2.2163639068603516, 2.999999761581421, -7.358831405639648  -  Client - Debug:21
+  00:13:54.487  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:54.488  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:54.488  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:54.488  ==================  -  Client - Debug:25
+  00:13:55.486  ==================  -  Client - Debug:17
+  00:13:55.486  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:55.486  Camera Distance from Character: 12.84  -  Client - Debug:19
+  00:13:55.486  Camera Position: -18.174240112304688, 6.66952657699585, -10.04006576538086  -  Client - Debug:20
+  00:13:55.487  Character Position: -6.070087432861328, 2.999999761581421, -12.283429145812988  -  Client - Debug:21
+  00:13:55.487  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:55.487  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:55.487  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:55.487  ==================  -  Client - Debug:25
+  00:13:56.484  ==================  -  Client - Debug:17
+  00:13:56.485  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:56.485  Camera Distance from Character: 12.64  -  Client - Debug:19
+  00:13:56.485  Camera Position: -23.53839111328125, 12.482030868530273, -3.429826021194458  -  Client - Debug:20
+  00:13:56.485  Character Position: -11.05031967163086, 10.481474876403809, -3.2118377685546875  -  Client - Debug:21
+  00:13:56.485  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:56.485  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:56.485  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:56.486  ==================  -  Client - Debug:25
+  00:13:57.483  ==================  -  Client - Debug:17
+  00:13:57.483  Camera Type: Enum.CameraType.Custom  -  Client - Debug:18
+  00:13:57.484  Camera Distance from Character: 12.64  -  Client - Debug:19
+  00:13:57.484  Camera Position: -20.728858947753906, 5.000555992126465, 8.025035858154297  -  Client - Debug:20
+  00:13:57.485  Character Position: -8.240787506103516, 2.999999761581421, 8.243023872375488  -  Client - Debug:21
+  00:13:57.485  Player CameraMaxZoomDistance: 128  -  Client - Debug:22
+  00:13:57.485  Player CameraMinZoomDistance: 0.5  -  Client - Debug:23
+  00:13:57.486  Player CameraMode: Enum.CameraMode.Classic  -  Client - Debug:24
+  00:13:57.486  ==================  -  Client - Debug:25
+  00:13:58.515  Disconnect from 127.0.0.1|54459  -  Studio
