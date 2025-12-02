@@ -1,67 +1,29 @@
-  17:17:33.211  Remote Events Created!  -  Server - SetupRemoteEvents:34
-  17:17:33.890  Animation Spoofer cannot run while game is running  -  Server
-  17:17:34.345  Animation Spoofer cannot run while game is running  -  Client
-  17:17:35.171  UI Setup Complete!  -  Client - SetupUI:73
-  17:17:36.630  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:17:36.630  Stack Begin  -  Studio
-  17:17:36.630  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:17:36.630  Stack End  -  Studio
-  17:17:38.298  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:17:38.298  Stack Begin  -  Studio
-  17:17:38.298  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:17:38.298  Stack End  -  Studio
-  17:17:55.214  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:17:55.214  Stack Begin  -  Studio
-  17:17:55.214  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:17:55.214  Stack End  -  Studio
-  17:17:55.246  GlobeGO placed a wall!  -  Server - WallServer:121
-  17:17:55.246  Wall Data Created!  -  Server - CreateWallData:19
-  17:17:58.295  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:17:58.296  Stack Begin  -  Studio
-  17:17:58.296  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:17:58.296  Stack End  -  Studio
-  17:17:58.327  GlobeGO placed a wall!  -  Server - WallServer:121
-  17:17:58.328  Wall Data Created!  -  Server - CreateWallData:19
-  17:18:03.164  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:18:03.164  Stack Begin  -  Studio
-  17:18:03.165  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:18:03.165  Stack End  -  Studio
-  17:18:03.194  GlobeGO placed a wall!  -  Server - WallServer:121
-  17:18:03.195  Wall Data Created!  -  Server - CreateWallData:19
-  17:18:05.248  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:18:05.248  Stack Begin  -  Studio
-  17:18:05.248  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:18:05.248  Stack End  -  Studio
-  17:18:05.639  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:18:05.640  Stack Begin  -  Studio
-  17:18:05.640  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:18:05.640  Stack End  -  Studio
-  17:18:06.595  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:18:06.595  Stack Begin  -  Studio
-  17:18:06.595  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:18:06.595  Stack End  -  Studio
-  17:18:06.780  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:18:06.780  Stack Begin  -  Studio
-  17:18:06.781  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:18:06.781  Stack End  -  Studio
-  17:18:06.964  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:18:06.964  Stack Begin  -  Studio
-  17:18:06.964  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:18:06.964  Stack End  -  Studio
-  17:18:07.162  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:18:07.162  Stack Begin  -  Studio
-  17:18:07.163  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:18:07.163  Stack End  -  Studio
-  17:18:07.312  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:18:07.312  Stack Begin  -  Studio
-  17:18:07.312  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:18:07.312  Stack End  -  Studio
-  17:18:07.496  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:18:07.496  Stack Begin  -  Studio
-  17:18:07.496  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:18:07.496  Stack End  -  Studio
-  17:18:07.661  buildModeActive is not a valid member of LocalScript "Workspace.GlobeGO.BuildingSystem"  -  Client - PlayerController:105
-  17:18:07.662  Stack Begin  -  Studio
-  17:18:07.662  Script 'Workspace.GlobeGO.PlayerController', Line 105  -  Studio - PlayerController:105
-  17:18:07.662  Stack End  -  Studio
-  17:18:13.849  Disconnect from 127.0.0.1|56881  -  Studio
+  18:04:02.827  Remote Events Created!  -  Server - SetupRemoteEvents:34
+  18:04:03.771  Animation Spoofer cannot run while game is running  -  Server
+  18:04:04.421  Animation Spoofer cannot run while game is running  -  Client
+  18:04:04.574  UI Setup Complete!  -  Client - SetupUI:73
+  18:04:04.576  BuildingSystem loaded!  -  Client - BuildingSystem:218
+  18:04:04.576  PlayerController loaded!  -  Client - PlayerController:156
+  18:04:19.884  Build mode ACTIVATED  -  Client - BuildingSystem:166
+  18:04:19.885  Preview created and visible!  -  Client - BuildingSystem:73
+  18:04:21.370  Wall placed! Remaining: 2  -  Client - BuildingSystem:146
+  18:04:21.370  Build mode DEACTIVATED  -  Client - BuildingSystem:169
+  18:04:21.401  GlobeGO placed a wall!  -  Server - WallServer:132
+  18:04:21.401  Wall Data Created!  -  Server - CreateWallData:19
+  18:04:22.685  Build mode ACTIVATED  -  Client - BuildingSystem:166
+  18:04:22.686  Preview created and visible!  -  Client - BuildingSystem:73
+  18:04:23.602  Wall placed! Remaining: 1  -  Client - BuildingSystem:146
+  18:04:23.602  Build mode DEACTIVATED  -  Client - BuildingSystem:169
+  18:04:23.633  GlobeGO placed a wall!  -  Server - WallServer:132
+  18:04:23.634  Wall Data Created!  -  Server - CreateWallData:19
+  18:04:36.835  Build mode ACTIVATED  -  Client - BuildingSystem:166
+  18:04:36.836  Preview created and visible!  -  Client - BuildingSystem:73
+  18:04:37.402  Wall placed! Remaining: 0  -  Client - BuildingSystem:146
+  18:04:37.402  Build mode DEACTIVATED  -  Client - BuildingSystem:169
+  18:04:37.433  GlobeGO placed a wall!  -  Server - WallServer:132
+  18:04:37.434  Wall Data Created!  -  Server - CreateWallData:19
+  18:04:38.417  Build mode ACTIVATED  -  Client - BuildingSystem:166
+  18:04:38.418  Preview created and visible!  -  Client - BuildingSystem:73
+  18:04:38.519  Cannot place wall!  3/3  -  Client - BuildingSystem:133
+  18:04:39.368  Build mode DEACTIVATED  -  Client - BuildingSystem:169
+  18:04:44.874  Disconnect from 127.0.0.1|56063  -  Studio

@@ -29,7 +29,7 @@ local isRunning = false
 -- Set humanoid properties
 humanoid.MaxHealth = maxHealth
 humanoid. Health = maxHealth
-humanoid. WalkSpeed = walkSpeed
+humanoid.WalkSpeed = walkSpeed
 
 -- UI
 local playerGui = player:WaitForChild("PlayerGui")
@@ -62,8 +62,8 @@ local function performMeleeAttack()
 	local rayOrigin = humanoidRootPart.Position
 	local rayDirection = humanoidRootPart.CFrame.LookVector * meleeRange
 	
-	local raycastParams = RaycastParams. new()
-	raycastParams. FilterDescendantsInstances = {character}
+	local raycastParams = RaycastParams.new()
+	raycastParams.FilterDescendantsInstances = {character}
 	raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
 	
 	local rayResult = workspace:Raycast(rayOrigin, rayDirection, raycastParams)
@@ -87,8 +87,10 @@ local function performMeleeAttack()
 		-- Check if hit a wall
 		if part.Parent. Name:match("_Wall") then
 			local wall = part.Parent
-			if _G.DamageWall then
-				_G.DamageWall(wall, meleeDamage, character)
+			-- Use remote event to damage wall on server
+			local DamageWallEvent = RemoteEvents:FindFirstChild("DamageWall")
+			if DamageWallEvent then
+				DamageWallEvent:FireServer(wall, meleeDamage)
 			end
 		end
 	end
@@ -98,17 +100,16 @@ end
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
 	if gameProcessed then return end
 	
-	-- Attack with left click or E key
+	-- Attack with left click or E key - FIX: Check global variable
 	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.KeyCode == Enum.KeyCode.E then
-		-- Only attack if not in build mode
-		local buildScript = character:FindFirstChild("BuildingSystem")
-		if buildScript and not buildScript. buildModeActive then
+		-- Only attack if NOT in build mode (check global variable)
+		if not _G.BuildModeActive then
 			performMeleeAttack()
 		end
 	end
 	
 	-- Sprint with Shift
-	if input.KeyCode == Enum.KeyCode. LeftShift then
+	if input.KeyCode == Enum.KeyCode.LeftShift then
 		isRunning = true
 		humanoid.WalkSpeed = runSpeed
 	end
@@ -151,3 +152,5 @@ humanoid. HealthChanged:Connect(function(health)
 	currentHealth = health
 	updateUI()
 end)
+
+print("PlayerController loaded!")
