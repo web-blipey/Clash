@@ -1,9 +1,15 @@
-  00:27:33.142  Remote Events Created!  -  Server - SetupRemoteEvents:34
-  00:27:33.144  WallServer loaded!  -  Server - WallServer:187
-  00:27:33.818  Animation Spoofer cannot run while game is running  -  Server
-  00:27:34.368  Animation Spoofer cannot run while game is running  -  Client
-  00:27:34.882  Workspace.GlobeGO.CameraSystem:93: Expected ')' (to close '(' at column 55), got '5'  -  Studio - CameraSystem:93
-  00:27:34.915  UI Setup Complete!  -  Client - SetupUI:75
-  00:27:34.916  ✓ BuildingSystem loaded!  -  Client - BuildingSystem:211
-  00:27:34.916  ✓ PlayerController loaded!  -  Client - PlayerController:109
-  00:27:41.764  Disconnect from 127.0.0.1|49238  -  Studio
+  10:28:30.104  Remote Events Created!  -  Server - SetupRemoteEvents:34
+  10:28:30.104  WallServer loaded!  -  Server - WallServer:187
+  10:28:30.720  Animation Spoofer cannot run while game is running  -  Server
+  10:28:31.962  Animation Spoofer cannot run while game is running  -  Client
+  10:28:32.076  Workspace.GlobeGO.CameraSystem:92: Expected ')' (to close '(' at column 55), got '5'  -  Studio - CameraSystem:92
+  10:28:32.198  UI Setup Complete!  -  Client - SetupUI:75
+  10:28:32.199  ✓ BuildingSystem loaded!  -  Client - BuildingSystem:211
+  10:28:32.200  ✓ PlayerController loaded!  -  Client - PlayerController:109
+  10:28:39.700  Build mode ON  -  Client - BuildingSystem:164
+  10:28:39.700  Preview created upright!  -  Client - BuildingSystem:78
+  10:28:39.951  Wall placed!  Remaining: 2  -  Client - BuildingSystem:144
+  10:28:39.952  Build mode OFF  -  Client - BuildingSystem:167
+  10:28:39.983  GlobeGO placed a wall at rotation: 0  -  Server - WallServer:144
+  10:28:39.984  Wall Data Created!  -  Server - CreateWallData:19
+  10:28:42.873  Disconnect from 127.0.0.1|52606  -  Studio

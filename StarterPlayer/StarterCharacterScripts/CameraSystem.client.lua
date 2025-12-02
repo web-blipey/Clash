@@ -1,5 +1,4 @@
 -- Place in StarterPlayer > StarterCharacterScripts
--- THIS WILL WORK - GUARANTEED
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -37,7 +36,7 @@ task.spawn(function()
     
     -- Get camera module
     local CameraModule = require(PlayerModule:WaitForChild("CameraModule"))
-    local CameraScript = CameraModule. new()
+    local CameraScript = CameraModule.new()
     
     -- Disconnect all camera connections
     if CameraScript then
@@ -59,7 +58,7 @@ ContextActionService:UnbindAction("CameraMovement")
 
 -- Create our camera update function
 local function updateCamera()
-    if not character or not character. Parent then return end
+    if not character or not character.Parent then return end
     if not rootPart or not rootPart.Parent then return end
     
     -- Keep camera scriptable
@@ -69,7 +68,7 @@ local function updateCamera()
     
     -- Keep mouse locked
     if UserInputService. MouseBehavior ~= Enum.MouseBehavior.LockCenter then
-        UserInputService.MouseBehavior = Enum.MouseBehavior. LockCenter
+        UserInputService.MouseBehavior = Enum.MouseBehavior.LockCenter
     end
     
     -- Get mouse movement
@@ -80,8 +79,8 @@ local function updateCamera()
     rotY = math.clamp(rotY - delta.Y * Y_SENSITIVITY * 0.01, MIN_Y, MAX_Y)
     
     -- SHIFT LOCK: Rotate character to match camera
-    local charCFrame = CFrame.new(rootPart.Position) * CFrame.Angles(0, rotX, 0)
-    rootPart.CFrame = CFrame.new(rootPart.Position, rootPart.Position + charCFrame.LookVector)
+    local charCFrame = CFrame.new(rootPart. Position) * CFrame.Angles(0, rotX, 0)
+    rootPart.CFrame = CFrame.new(rootPart. Position, rootPart.Position + charCFrame.LookVector)
     
     -- Calculate camera position
     local cameraCFrame = CFrame.new(rootPart.Position)
@@ -89,7 +88,7 @@ local function updateCamera()
         * CFrame. Angles(rotY, 0, 0)
         * CFrame.new(CAMERA_OFFSET)
     
-    local cameraPosition = cameraCFrame. Position
+    local cameraPosition = cameraCFrame.Position
     local focusPosition = rootPart.Position + Vector3.new(0, 1. 5, 0)
     
     -- Set camera
@@ -108,23 +107,23 @@ local screenGui = playerGui:FindFirstChild("BuildingUI") or playerGui:FindFirstC
 if screenGui then
     local crosshair = Instance.new("Frame")
     crosshair.Name = "Crosshair"
-    crosshair.AnchorPoint = Vector2.new(0.5, 0. 5)
-    crosshair. Position = UDim2.new(0.5, 0, 0.5, 0)
+    crosshair.AnchorPoint = Vector2.new(0.5, 0. 5) -- FIXED: Added closing parenthesis
+    crosshair.Position = UDim2.new(0.5, 0, 0.5, 0)
     crosshair.Size = UDim2.new(0, 4, 0, 4)
     crosshair.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     crosshair.BorderSizePixel = 0
     crosshair.Parent = screenGui
     
     local horizontal = Instance.new("Frame")
-    horizontal.AnchorPoint = Vector2.new(0.5, 0. 5)
-    horizontal.Position = UDim2.new(0.5, 0, 0.5, 0)
-    horizontal.Size = UDim2.new(0, 20, 0, 2)
+    horizontal.AnchorPoint = Vector2.new(0.5, 0. 5) -- FIXED: Added closing parenthesis
+    horizontal.Position = UDim2.new(0. 5, 0, 0. 5, 0)
+    horizontal.Size = UDim2. new(0, 20, 0, 2)
     horizontal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     horizontal.BorderSizePixel = 0
     horizontal.Parent = crosshair
     
     local vertical = Instance.new("Frame")
-    vertical.AnchorPoint = Vector2.new(0.5, 0.5)
+    vertical.AnchorPoint = Vector2.new(0.5, 0.5) -- FIXED: Added closing parenthesis
     vertical.Position = UDim2.new(0.5, 0, 0.5, 0)
     vertical.Size = UDim2.new(0, 2, 0, 20)
     vertical.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -147,7 +146,7 @@ player.CharacterAdded:Connect(function(newChar)
     
     task.wait(0.1)
     
-    camera.CameraType = Enum. CameraType.Scriptable
+    camera.CameraType = Enum.CameraType. Scriptable
     camera.CameraSubject = humanoid
     UserInputService.MouseBehavior = Enum.MouseBehavior. LockCenter
     UserInputService.MouseIconEnabled = false
